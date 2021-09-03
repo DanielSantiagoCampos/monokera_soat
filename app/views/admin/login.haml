@@ -1,0 +1,10 @@
+= link_to "Volver", '/'
+
+= form_with url: sign_in_admin_index_path, method: :post do |f|
+
+  = f.label :email, 'Correo'
+  = f.text_field :email
+  = f.label :password, 'Contraseña'
+  = f.text_field :password
+
+  = f.submit "Ingresar"

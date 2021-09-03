@@ -1,0 +1,4 @@
+= if @vehicle.present?
+  %span= @vehicle.attributes
+= else
+  %span= "No se encontro un vehiculo con la placa #{params['placa']}"

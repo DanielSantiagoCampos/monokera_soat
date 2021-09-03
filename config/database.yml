@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: postgres
+
+development:
+  <<: *default
+  database: monokera_development
+  host: localhost
+
+# test:
+#   <<: *default
+#   database: monokera_test
+
+# production:
+#   <<: *default
+#   database: monokera_production

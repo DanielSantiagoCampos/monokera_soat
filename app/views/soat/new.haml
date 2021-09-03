@@ -1,0 +1,15 @@
+= link_to 'Volver', '/'
+
+%h2 Informacion del vehiculo
+
+= link_to render_info_by_vehicle_soat_index_path, remote: true do
+  %button Agregar direcciones por documento
+
+= form_with url: render_info_by_vehicle_soat_index_path, method: :get, remote: true do |f|
+
+  = f.label :placa, 'Ingresa la placa'
+  = f.text_field :placa
+
+  = f.submit "Validar vehiculo"
+
+#render-info-by-vehicle
