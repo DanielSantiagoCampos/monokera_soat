@@ -15,13 +15,21 @@
 - `bin/rake db:migrate`
 - `rails s`
 
-### Or just go [monokera test](http://localhost:3000/users/)
+### Or just go [heroku](https://evening-island-79324.herokuapp.com/)
 
 ### Review test
 
-- Please open [project](http://localhost:3000/users/)
+## As an admin
 
-- Check, `app/views/soat/ && app/views/admin/`
+- Login with credentials:
+- username: camposdaniel1002@gmail.com
+- password: daniel10
+
+## Like a reviewer
+
+- Please open project
+
+- Check, `db/migrate/ && app/models/ && app/views/ && app/controllers && app/mailers/ && app/assets/stylesheets/_main.scss`
 
 - Please open and check `spec/`
 
