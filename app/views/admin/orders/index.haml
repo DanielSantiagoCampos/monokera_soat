@@ -12,6 +12,7 @@
       %th Pago
       %th Tomador
       %th Vehiculo Placa
+      %th Clase
       %th Tarifa
       %th Pago con tarjeta
       %th Fecha de compra
@@ -26,6 +27,7 @@
         %td= to_currency order.payment_value
         %td= order.user.full_name
         %td= order.vehicle.placa
+        %td= order.tariff.tariff_type.description
         %td= order.tariff.cylinders_description
         %td= "*#{order.credit_card.number.last(4)}"
         %td= order.created_at.strftime('%F')
