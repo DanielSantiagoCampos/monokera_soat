@@ -10,9 +10,9 @@ development:
   database: monokera_development
   host: localhost
 
-# test:
-#   <<: *default
-#   database: monokera_test
+test:
+  <<: *default
+  database: monokera_test
 
 # production:
 #   <<: *default
