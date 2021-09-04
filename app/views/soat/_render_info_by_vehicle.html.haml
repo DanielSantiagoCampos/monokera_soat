@@ -1,4 +1,58 @@
-= if @vehicle.present?
-  %span= @vehicle.attributes
-= else
-  %span= "No se encontro un vehiculo con la placa #{params['placa']}"
+%hr
+%h2 Información del vehículo
+- if @vehicle && @vehicle.has_able_soat?
+
+  %h4 Este vehículo cuenta con un SOAT activo.
+
+- else
+
+  %span= "No se encontro un vehículo con la placa #{params['placa']}, completa la informacion."
+
+  = form_tag '/soat/render_shooping_cart', method: :get, remote: true do |f|
+
+    .form-group
+      = label_tag :placa, 'Placa'
+      = text_field_tag :placa, params["placa"], maxlength: 6, required: true, class: "form-control"
+
+    .form-group
+      = label_tag :date, 'Fecha de matricula'
+      = date_field_tag :date, Time.zone.now.strftime('%F'), max: Time.zone.now.strftime('%F'), required: true, class: "form-control"
+
+    .form-group
+      = label_tag :tariff_type_id, 'Clase'
+      = select_tag :tariff_type_id, options_for_select(TariffType.pluck(:description, :id)), include_blank: 'Seleccione', :onchange => 'getTariffs()', required: true, class: "form-control"
+
+    .form-group
+      = label_tag :tariff_id, 'Tarifa'
+      = select_tag :tariff_id, nil, include_blank: 'Seleccione Clase', required: true, class: "form-control"
+
+    %hr
+    %h2 Tomador
+
+    .form-group
+      = label_tag :document_type, 'Tipo de documento'
+      = select_tag :document_type, options_for_select(["Cedula ciudadania", "Pasaporte", "NIT" ], nil), include_blank: 'Seleccione', required: true, class: "form-control"
+
+    .form-group
+      = label_tag :document, 'Numero documento'
+      = text_field_tag :document, nil, maxlength: 10, required: true, class: "form-control"
+
+    .form-group
+      = label_tag :full_name, 'Nombre completo'
+      = text_field_tag :full_name, nil, maxlength: 40, required: true, class: "form-control"
+
+    .form-group
+      = label_tag :phone, 'Numero conctacto'
+      = text_field_tag :phone, nil, maxlength: 10, required: true, class: "form-control"
+
+    .form-group
+      = label_tag :email, 'Correo electronico'
+      = text_field_tag :email, nil, required: true, type: 'email', class: "form-control"
+
+    .form-group
+      = label_tag :password, 'Contraseña'
+      = text_field_tag :password, nil, maxlength: 8, type: 'password', class: "form-control"
+
+    .form-group
+      = submit_tag "Continuar", class: "btn btn-primary"
+

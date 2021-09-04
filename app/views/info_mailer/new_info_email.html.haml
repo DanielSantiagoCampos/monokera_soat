@@ -1,0 +1,36 @@
+%strong= "Hola #{@info[:full_name]}, gracias por tu compra!"
+%br
+%br
+
+%strong Resumen de la compra:
+%span Poliza seguro obligatorio.
+%br
+
+%strong Placa:
+%span= @info[:placa]
+%br
+
+%strong Vigencia
+%br
+%span Desde:
+%span= @info[:start_at]
+%br
+%span Hasta:
+%span= @info[:finish_at]
+%br
+
+%strong Tu SOAT
+%br
+%span= @info[:tariff_type_description]
+%br
+
+%strong Información de tarifa:
+%span= @info[:tariff_description]
+%br
+
+%strong Tomador:
+%span= @info[:full_name]
+%br
+
+%strong Total:
+%span= @info[:total]

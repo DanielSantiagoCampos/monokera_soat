@@ -1,0 +1,119 @@
+.alert-dismissible {
+  padding-left: 10px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  font-size: 70.5%; }
+
+body {
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  overflow-y: scroll;
+
+}
+
+.container {
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  ._home {
+    background-image: url( image_path('family.jpg') );
+  }
+
+  .text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    height: 100%;
+
+    #render-info-by-vehicle {
+      margin-top: 2rem;
+    }
+
+    #render-shooping-cart {
+      margin-top: 2rem;
+    }
+
+    #render-payment {
+      margin-top: 2rem;
+    }
+
+    .card {
+      padding: 1rem 5rem;
+
+      .title {
+        font-weight: 600;
+      }
+
+      .sub-title {
+        color: #007bff;
+        font-size: 1.3rem;
+      }
+
+    }
+
+
+  }
+
+  .buttons {
+    margin-top: 2rem;
+
+  .buy_soat {
+    margin-top: 1rem;
+  }
+
+  }
+}
+
+.btn {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #87CEEB;
+  color: #FFF;
+}
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative; }
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
+  .btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.5);
+    opacity: 0; }
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s; }

@@ -1,0 +1,37 @@
+%hr
+%h2 Información de la tarjeta
+= form_tag '/soat/send_notification', method: :get do |f|
+
+  .form-group
+    = label_tag :owner_name, 'Pagar con la tarjeta de:'
+    = text_field_tag :owner_name, params["full_name"], maxlength: 40, required: true, class: "form-control"
+
+  .form-group
+    = label_tag :number, 'Numero'
+    = text_field_tag :number, nil, maxlength: 12, required: true, class: "form-control"
+
+  .form-group
+    = label_tag :cvv, 'Codigo de seguridad'
+    = text_field_tag :cvv, params["full_name"], maxlength: 3, required: true, class: "form-control"
+
+  .form-group
+    = label_tag :due_date, 'Fecha vencimiento'
+
+    .row
+      .col-md-6
+        = label_tag :month, 'Mes'
+        = select_tag :month, options_for_select((1..12)), include_blank: 'Seleccione', required: true, class: "form-control"
+      .col-md-6
+        = label_tag :year, 'Año'
+        = select_tag :year,  options_for_select((2021..2033)), include_blank: 'Seleccione', required: true, class: "form-control"
+
+  .form-group
+    = label_tag :coute_number, 'Numero de cuotas'
+    = text_field_tag :coute_number, 1, required: true, class: "form-control"
+
+  .form-group
+    = hidden_field_tag :order_id, @order.id
+
+  .form-group
+    = submit_tag "Comprar SOAT", class: "btn btn-primary"
+

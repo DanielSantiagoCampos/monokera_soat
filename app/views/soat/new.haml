@@ -1,15 +1,62 @@
+%script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"}
+%script{src: "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js", integrity: "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1", crossorigin:"anonymous"}
+%script{src: "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js",    integrity: "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM", crossorigin:"anonymous"}
+
 = link_to 'Volver', '/'
 
-%h2 Informacion del vehiculo
+.container
+  .text
+    %h2 Cotiza tu SOAT
 
-= link_to render_info_by_vehicle_soat_index_path, remote: true do
-  %button Agregar direcciones por documento
+    = form_tag '/soat/render_info_by_vehicle', method: :get, remote: true do |f|
 
-= form_with url: render_info_by_vehicle_soat_index_path, method: :get, remote: true do |f|
+      = text_field_tag :placa, nil, maxlength: 6, placeholder: 'Digita tu placa', required: true, class: "form-control"
+      %br
 
-  = f.label :placa, 'Ingresa la placa'
-  = f.text_field :placa
+      = submit_tag "Validar vehiculo", class: "btn btn-primary"
 
-  = f.submit "Validar vehiculo"
+    #render-info-by-vehicle
 
-#render-info-by-vehicle
+    #render-shooping-cart
+
+    #render-payment
+
+    :javascript
+      $(function() {
+        $('input#placa').keyup(function() {
+          this.value = this.value.toLocaleUpperCase();
+        });
+      });
+
+      $(function() {
+        $("#date").datepicker({format: 'yyyy-mm-dd'});
+      });
+
+      function getTariffs() {
+        let selectedClass = event.target.value;
+
+        $.ajax({
+          dataType: "json",
+          cache: false,
+          url: '/soat/get_tariffs_by_type?id=' + selectedClass,
+          timeout: 5000,
+          error: function (XMLHttpRequest, errorTextStatus, error) {
+            console.log("Falla al cargar tarifas: " + errorTextStatus + " ;" + error);
+          },
+          success: function (data) {
+            // Clear all options from course select
+            $("select#tariff_id option").remove();
+            //put in a empty default line
+            var row = "<option value=\"" + "" + "\">" + "Seleccione..." + "</option>";
+            $(row).appendTo("select#tariff_id");
+            // Fill course select
+            $.each(data.data, function (i, j) {
+                row = "<option value=\"" + j.id + "\">" + j.cylinders_description + "</option>";
+                $(row).appendTo("select#tariff_id");
+            });
+
+            $("select#tariff_id").focus()
+          }
+        });
+      };
+

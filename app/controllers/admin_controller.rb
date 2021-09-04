@@ -12,13 +12,13 @@ class AdminController < ApplicationController
       if user.present?
 
         format.html {
-          redirect_to '/orders'
+          redirect_to admin_orders_path
         }
         format.json { render json: { status: true, message: @sales } }
       else
 
         format.html {
-          redirect_to '/admin/login', error: 'Usuario y/o contaseña no validob.'
+          redirect_to '/admin/login', error: 'Usuario y/o contaseña no valido.'
         }
         format.json { render json: { status: false, message: @sales } }
       end

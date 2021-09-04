@@ -1,10 +1,13 @@
 = link_to "Volver", '/'
 
-= form_with url: sign_in_admin_index_path, method: :post do |f|
-
-  = f.label :email, 'Correo'
-  = f.text_field :email
-  = f.label :password, 'Contraseña'
-  = f.text_field :password
-
-  = f.submit "Ingresar"
+.container
+  .text
+    = form_with url: sign_in_admin_index_path, method: :post do |f|
+      .form-group
+        = f.label :email, 'Correo'
+        = f.text_field :email
+      .form-group
+        = f.label :password, 'Contraseña'
+        = f.text_field :password
+      .form-group
+        = f.submit "Ingresar", class: "btn btn-primary"

@@ -1,0 +1,57 @@
+= link_to 'Volver', admin_orders_path
+
+.container
+  .text
+    %h3 Detalle de SOAT
+    .card{style: 'margin-bottom: 200px;'}
+      %h3 Vehículo
+
+      %span.title Placa
+      %span.sub-title= @order.vehicle.placa
+      %br
+      %span.title Vigencia
+      %span Desde:
+      %span.sub-title= @order.start_at.strftime('%F')
+      %span Hasta:
+      %span.sub-title= @order.finish_at.strftime('%F')
+      %br
+      %span.title Tu SOAT
+      %br
+      %span.sub-title= @order.tariff.tariff_type.description
+      %br
+      %span.title Codigo
+      %span.sub-title= @order.tariff.code
+      %br
+      %span.title Información de tarifa
+      %span.sub-title= @order.tariff.cylinders_description
+      %br
+      %span.title Modelos 2012 en adelante
+      %span.sub-title= @order.tariff.younger_than_twelve ? 'No' : 'Si'
+      %br
+      %span.title Prima
+      %span.sub-title= to_currency @order.tariff.prime_tax
+      %br
+      %span.title Contribucion
+      %span.sub-title= to_currency @order.tariff.contribution_tax
+      %br
+      %span.title Total
+      %span.sub-title= to_currency @order.tariff.total_value
+      %br
+
+      %hr
+      %h3 Tomador
+
+      %span.title Tipo de documento
+      %span.sub-title= @order.user.document_type
+      %br
+      %span.title Numero documento
+      %span.sub-title= @order.user.document
+      %br
+      %span.title Nombre
+      %span.sub-title= @order.user.full_name
+      %br
+      %span.title Numero conctacto
+      %span.sub-title= @order.user.phone
+      %br
+      %span.title Correo electronico
+      %span.sub-title= @order.user.email

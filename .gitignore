@@ -5,3 +5,13 @@
 /config/master.key
 log
 /tmp/*
+tmp
+/public/assets
+/public/packs
+
+*.swp
+/node_modules
+
+/log/*
+/tmp/*
+

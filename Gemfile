@@ -15,10 +15,6 @@ gem "haml-rails", "~> 2.0"
 gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'json', '~> 2.5.1'
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'jquery-datatables-rails'
-gem 'ajax-datatables-rails', '~> 1.0.0'
 
 group :test do
   gem 'factory_bot_rails', '~> 4.11.1'

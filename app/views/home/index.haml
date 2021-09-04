@@ -1,9 +1,14 @@
-%h1 SOAT by Monokera
+.container.home
+  .text
+    %h1 SOAT by Monokera
 
-%h2 Consulta tarifas
-%h2 Consulta Coberturas
+    %h2 Consulta tarifas
+    %h2 Consulta Coberturas
 
-= link_to "Ingresar como administrador", login_admin_index_path
-%br
+    .buttons
+      .div
+        = link_to 'Ingresar como administrador', login_admin_index_path
 
-= link_to "Comprar SOAT", new_soat_path
+      .div.buy_soat
+        = link_to new_soat_path do
+          %button.btn Comprar SOAT
