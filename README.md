@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Steps
 
-Things you may want to cover:
+### Clone repository
 
-* Ruby version
+`git clone git@github.com:DanielSantiagoCampos/monokera_soat.git`
 
-* System dependencies
+### Prepare project to up
 
-* Configuration
+- `gem install bundler`
+- `yarn install`
+- `bundle install`
+- `bin/rake db:create`
+- `bin/rake db:migrate`
+- `rails s`
 
-* Database creation
+### Or just go [monokera test](http://localhost:3000/users/)
 
-* Database initialization
+### Review test
 
-* How to run the test suite
+- Please open [project](http://localhost:3000/users/)
 
-* Services (job queues, cache servers, search engines, etc.)
+- Check, `app/views/soat/ && app/views/admin/`
 
-* Deployment instructions
+- Please open and check `spec/`
 
-* ...
+## References
+
+- Tarifas
+- https://www.suraenlinea.com/soat/sura/tarifas
+
+- Rails Guides
+- https://guides.rubyonrails.org/
+
+- Heroku Deploy
+- https://devcenter.heroku.com/articles/getting-started-with-rails6
