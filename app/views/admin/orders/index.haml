@@ -29,6 +29,6 @@
         %td= order.vehicle.placa
         %td= order.tariff.tariff_type.description
         %td= order.tariff.cylinders_description
-        %td= "*#{order.credit_card.number.last(4)}"
+        %td= "*#{order.credit_card&.number&.last(4)}"
         %td= order.created_at.strftime('%F')
         %td= link_to 'Ver detalle', admin_order_path(order.id)
